@@ -1,4 +1,8 @@
-h1 Problems
-ul 
+.row
+  .small-6.medium-12.columns
+    h1 Problems
+  .small-6.medium-12.columns
+    p = link_to "New problem", new_problem_path, class: 'button'
+ul.problems 
   - @problems.each do |problem|
-    li = problem.content
+    li = link_to problem.content, problem_path(problem)

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'cancancan', '~> 1.10'
+gem 'rails_12factor' 
 gem 'slim'
 gem 'devise'
 gem 'simple_form'
