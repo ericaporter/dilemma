@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523162044) do
+ActiveRecord::Schema.define(version: 20150527093858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20150523162044) do
   end
 
   add_index "comments", ["problem_id"], name: "index_comments_on_problem_id", using: :btree
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "problems", force: :cascade do |t|
     t.integer  "user_id"
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150523162044) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -71,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150523162044) do
   add_index "votes", ["solution_id"], name: "index_votes_on_solution_id", using: :btree
 
   add_foreign_key "comments", "problems"
+  add_foreign_key "identities", "users"
   add_foreign_key "problems", "users"
   add_foreign_key "solutions", "problems"
   add_foreign_key "votes", "solutions"
