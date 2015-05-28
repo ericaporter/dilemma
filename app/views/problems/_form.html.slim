@@ -1,8 +1,5 @@
-= simple_form_for @problem do |f|
+= simple_form_for @problem, html: {multipart: true} do |f|
   = f.input :content
+  = f.input :background_image, as: :file
   = f.button :submit
-
-= simple_form_for @problem do |f|
-  = f.label :background_image
-  = f.file_field :background_image
 

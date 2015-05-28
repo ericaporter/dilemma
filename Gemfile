@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'quiet_assets', group: :development
 gem 'carrierwave', '0.10.0'
 gem 'cancancan', '~> 1.10'
 gem 'rails_12factor' 

@@ -6,7 +6,8 @@ p = link_to "New problem", new_problem_path, class: 'button'
 ul.problems 
 - @problems.each do |problem|
 li = link_to problem.content, problem_path(problem)
+td.background_image <%= image_tag problem.image, width: '100' %
 
-td.profile_image_thumb <%= image_tag user.image, width:'100' %
-
+/ erb:
+/   <td class="background_image"><%= image_tag problem.image, width:'100' %></td>
 

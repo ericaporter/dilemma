@@ -1,4 +1,6 @@
 h1 Problem
-p = @problem.content
-p = image_tag :background_image
 
+div.problem-image-container
+  div.problem-image style="background: url('#{image_url @problem.background_image }');" 
+    div.problem-text
+      = @problem.content
