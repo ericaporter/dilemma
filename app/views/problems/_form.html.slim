@@ -1,3 +1,9 @@
 = simple_form_for @problem do |f|
   = f.input :content
-  = f.button :submit 
+  = f.button :submit
+
+=simple_form_for @problem do |f|
+  = f.label :background_image
+  = f.file_field :background_image
+
+  

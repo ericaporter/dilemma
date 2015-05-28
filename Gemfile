@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave', '0.10.0'
 gem 'cancancan', '~> 1.10'
 gem 'rails_12factor' 
 gem 'slim'
@@ -8,6 +9,7 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '2.0.1'
+gem 'fog', '1.29.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
