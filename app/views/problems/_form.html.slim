@@ -1,5 +1,8 @@
 = simple_form_for @problem, html: {multipart: true} do |f|
   = f.input :content
   = f.input :background_image, as: :file
+  = f.fields_for :solutions do |builder|
+    = render "solution_fields", f: builder
+  p = link_to_add_fields "+ Add solution", f, :solutions, 'button small secondary'
   = f.button :submit
 

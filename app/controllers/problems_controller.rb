@@ -22,7 +22,7 @@ class ProblemsController < ApplicationController
 
   private
   def problem_params
-    params.require(:problem).permit(:content, :background_image)
+    params.require(:problem).permit(:content, :background_image, solutions_attributes: [:title])
   end
 
 
