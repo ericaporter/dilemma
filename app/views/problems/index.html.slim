@@ -1,16 +1,12 @@
 .row
-  .small-6.medium-12.columns
-    h1 Problems
-  .small-6.medium-12.columns
-    p = link_to "New problem", new_problem_path, class: 'button'
+.small-6.medium-12.columns
+h1 Problems
+.small-6.medium-12.columns
+p = link_to "New problem", new_problem_path, class: 'button'
 ul.problems 
-  - @problems.each do |problem|
-    li = link_to problem.content, problem_path(problem)
-    | <% @locations.each do |location| %
-    tr
-      td <%= location.name %
-      td <%= image_tag location.graffiti_image.url %
-      td <%= link_to 'Show', location %
-      td <%= link_to 'Edit', edit_location_path(location) %
-      td <%= link_to 'Destroy', location, method: :delete, data:   confirm: 'Are you sure?'   %
-    | <% end %
+- @problems.each do |problem|
+li = link_to problem.content, problem_path(problem)
+
+td.profile_image_thumb <%= image_tag user.image, width:'100' %
+
+
