@@ -3,27 +3,27 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   TEMP_EMAIL_PREFIX = 'change@me'
   has_many :problems
+  has_many :votes
   has_many :identities, dependent: :destroy
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
     user = self.create_user(auth) if user.nil? 
 
-  # Associate the identity with the user if needed
-  if identity.user != user
-    identity.user = user
-    identity.save!
+    # Associate the identity with the user if needed
+    if identity.user != user
+      identity.user = user
+      identity.save!
+    end
+
+    user
   end
 
-  user
-end
-
-private
-def self.create_user(auth)
+  private
+  def self.create_user(auth)
     # Get the existing user by email if the provider gives us a verified email.
     # If no verified email was provided we assign a temporary email and ask the
     # user to verify it on the next step via UsersController.finish_signup

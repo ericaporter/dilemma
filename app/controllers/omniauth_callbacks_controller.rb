@@ -1,6 +1,5 @@
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
-
     PROVIDERS = [:facebook]
 
     PROVIDERS.each do |provider|

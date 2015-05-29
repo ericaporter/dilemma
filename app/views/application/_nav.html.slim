@@ -12,6 +12,7 @@ nav.top-bar data-topbar="data-topbar"
       li.has-dropdown
         = link_to "Problems", "#"
         ul.dropdown
+          li = link_to "Problems", problems_path
           li = link_to "New Problem", new_problem_path
       - if user_signed_in?
         li = link_to "Edit Profile", edit_user_registration_path

@@ -1,3 +1,6 @@
+railscasts.com/episodes/196-nested-model-form-part-1
+railscasts.com/episodes/197-nested-model-form-part-2
+
 in erb
 <div id='row'>
   <div class='medium-12 columns'>
