@@ -13,3 +13,10 @@ ul.solutions-list
           p #{solution.title} - #{solution.votes.count}
         .medium-6.columns
           = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
+
+= render partial: 'comments/comment', collection: @problem.comments, locals: { commentable: @problem } 
+
+= render 'comments/form', commentable: @problem
+            
+
+          
