@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rmagick'
 gem 'acts_as_commentable'
 gem 'quiet_assets', group: :development
 gem 'carrierwave', '0.10.0'
