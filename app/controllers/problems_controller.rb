@@ -16,6 +16,8 @@ class ProblemsController < ApplicationController
   end  
 
   def create
+    # assign the tag id (available via params[:category]) to the created problem instance
+    # @problem = Problem.tag_id(params[:category])
     @problem.user = current_user
     respond_with(@problem) if @problem.save
     #/problems/:id
