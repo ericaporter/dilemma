@@ -1,4 +1,5 @@
 class Problem < ActiveRecord::Base
+  acts_as_taggable
   acts_as_commentable
   mount_uploader :background_image, BackgroundImageUploader
   belongs_to :user

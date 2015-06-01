@@ -4,7 +4,7 @@ gem 'acts_as_commentable'
 gem 'quiet_assets', group: :development
 gem 'carrierwave', '0.10.0'
 gem 'cancancan', '~> 1.10'
-
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'slim'
 gem 'devise', '3.4.1'
 gem 'simple_form'

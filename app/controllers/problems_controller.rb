@@ -4,6 +4,11 @@ class ProblemsController < ApplicationController
 
   def index
     # @problems = Problem.all
+    if params[:tag]
+      @problems = Problem.tagged_with(params[:tag])
+    else
+      @problems = Problem.all
+    end
   end
 
   def new 
@@ -22,7 +27,7 @@ class ProblemsController < ApplicationController
 
   private
   def problem_params
-    params.require(:problem).permit(:content, :background_image, solutions_attributes: [:title])
+    params.require(:problem).permit(:content, :background_image, :tag_list, solutions_attributes: [:title])
   end
 
 

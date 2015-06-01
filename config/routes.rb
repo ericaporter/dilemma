@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :problems
   resources :comments
+  get "tags/:tag", to: "problems#index", as: :tag
   resources :solutions do
     get :cast_vote, on: :member
   end
