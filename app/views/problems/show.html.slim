@@ -1,4 +1,4 @@
-h1 Problem
+h1 Dilemma
 
 div.problem-image-container
   div.problem-image style="background: url('#{image_url @problem.background_image }');" 
@@ -14,9 +14,7 @@ ul.solutions-list
         .medium-6.columns
           = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
 
-= render partial: 'comments/comment', collection: @problem.comments, locals: { commentable: @problem } 
-
-= render 'comments/form', commentable: @problem
+= render 'comments/form', commentable: @problem if user_signed_in?
             
-
+= render @problem.comments
           

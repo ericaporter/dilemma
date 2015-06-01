@@ -4,7 +4,7 @@ gem 'acts_as_commentable'
 gem 'quiet_assets', group: :development
 gem 'carrierwave', '0.10.0'
 gem 'cancancan', '~> 1.10'
-gem 'rails_12factor' 
+
 gem 'slim'
 gem 'devise', '3.4.1'
 gem 'simple_form'
@@ -54,3 +54,7 @@ group :development, :test do
   gem 'spring'
 end
 
+
+group :production do
+  gem 'rails_12factor' 
+end

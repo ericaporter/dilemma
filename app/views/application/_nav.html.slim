@@ -1,3 +1,4 @@
+.contain-to-grid.sticky
 nav.top-bar data-topbar="data-topbar"
   ul.title-area
     li.name
@@ -10,10 +11,10 @@ nav.top-bar data-topbar="data-topbar"
     ul.right
       li = link_to "", root_path
       li.has-dropdown
-        = link_to "Problems", "#"
+        = link_to "Dilemmas", "#"
         ul.dropdown
-          li = link_to "Problems", problems_path
-          li = link_to "New Problem", new_problem_path
+          li = link_to "Dilemmas", problems_path
+          li = link_to "New Dilemma", new_problem_path
       - if user_signed_in?
         li = link_to "Edit Profile", edit_user_registration_path
         li = link_to "Logout", logout_path

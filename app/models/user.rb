@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+  TEMP_EMAIL_PREFIX = 'change@me'
+  mount_uploader :profile_image, ProfileImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  TEMP_EMAIL_PREFIX = 'change@me'
   has_many :problems
   has_many :votes
   has_many :identities, dependent: :destroy

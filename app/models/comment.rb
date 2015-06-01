@@ -2,7 +2,8 @@ class Comment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
 
-  belongs_to :commentable, :polymorphic => true
+  belongs_to :problem
+  belongs_to :user
 
   default_scope -> { order('created_at ASC') }
 
@@ -11,5 +12,5 @@ class Comment < ActiveRecord::Base
   #acts_as_voteable
 
   # NOTE: Comments belong to a user
-  belongs_to :user
+  
 end
