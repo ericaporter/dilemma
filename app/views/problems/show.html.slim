@@ -5,15 +5,20 @@ div.problem-image-container
     div.problem-text
       = @problem.content
 
+- if user_has_voted_on_problem?(current_user, @problem)
+  = pie_chart(piechart_data(@problem.solutions))
 
 ul.solutions-list
   - @problem.solutions.each do |solution|
     li 
       .row
         .medium-6.columns
-          p #{solution.title} - #{solution.votes.count}
+          p #{solution.title}
         .medium-6.columns
-          = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
+          - if user_has_voted_on_problem?(current_user, @problem)
+            p Vote has been cast!
+          - else
+            = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
 
 = render 'comments/form', commentable: @problem if user_signed_in?
             
