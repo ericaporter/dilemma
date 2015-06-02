@@ -4,22 +4,28 @@ class ProblemsController < ApplicationController
 
   def index
     # @problems = Problem.all
-    if params[:tag]
-      @problems = Problem.tagged_with(params[:tag])
+    @category = ActsAsTaggableOn::Tag.find(params[:category]) if params[:category]
+
+    @problems = if @category
+      Problem.tagged_with @category
     else
-      @problems = Problem.all
+      Problem.all
     end
   end
 
   def new 
+    # load_and_authorize_resource will create the instance variable @problem
     # @problem = Problem.new
   end  
 
   def create
-    # assign the tag id (available via params[:category]) to the created problem instance
-    # @problem = Problem.tag_id(params[:category])
-    @problem.user = current_user
-    respond_with(@problem) if @problem.save
+    @problem = current_user.problems.new(problem_params)
+    @problem.tag_list << ActsAsTaggableOn::Tag.find(params[:category])
+    if @problem.save
+      respond_with(@problem) 
+    else
+      render :new
+    end
     #/problems/:id
   end 
 

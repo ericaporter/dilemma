@@ -1,6 +1,7 @@
 .row
 .small-6.medium-12.columns
-h1 Dilemmas
+h1 = @category ? "Dilemmas for #{@category}" : "Dilemmas"
+    
 .small-6.medium-12.columns
 p = link_to "New dilemma", new_problem_path, class: 'button'
 ul.problems 

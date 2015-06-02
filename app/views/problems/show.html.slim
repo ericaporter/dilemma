@@ -1,9 +1,10 @@
 h1 Dilemma
-
+h3 Category:  #{ @problem.tag_list } 
 div.problem-image-container
   div.problem-image style="background: url('#{image_url @problem.background_image }');" 
     div.problem-text
       = @problem.content
+
 
 ul.solutions-list
   - @problem.solutions.each do |solution|

@@ -12,6 +12,7 @@ gem 'foundation-rails'
 gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '2.0.1'
 gem 'fog', '1.29.0'
+gem 'pry-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
