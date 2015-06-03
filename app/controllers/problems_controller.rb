@@ -26,7 +26,6 @@ class ProblemsController < ApplicationController
     else
       render :new
     end
-    #/problems/:id
   end 
 
   def show
