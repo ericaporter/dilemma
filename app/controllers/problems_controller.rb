@@ -16,6 +16,9 @@ class ProblemsController < ApplicationController
   def new 
     # load_and_authorize_resource will create the instance variable @problem
     # @problem = Problem.new
+
+    @problem.solutions.new
+    
   end  
 
   def create

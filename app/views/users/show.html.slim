@@ -1,7 +1,10 @@
-h1= @user.name
-
-= image_tag @user.image.url
-
-ul.grid
-  = render @user.problems
+#user_profile
+  .centerpiece
+    = image_tag @user.image.url
+    h1= @user.name
+.row
+  .medium-12
+    #user_profile_content
+      ul.grid
+        = render @user.problems
   

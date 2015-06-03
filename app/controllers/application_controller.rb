@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def configure_devise_parameters
-    devise_parameter_sanitizer.for(:sign_up) do |u| u.permit(:email, :password, :password_confirmation, :name, :profile_image) 
+    devise_parameter_sanitizer.for(:sign_up) do |u| u.permit(:email, :password, :password_confirmation, :name, :image) 
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:name, :email, :password, :password_confirmation, :current_password, :profile_image)
+      u.permit(:name, :email, :password, :password_confirmation, :current_password, :image)
     end
   end
 end
