@@ -8,8 +8,8 @@
     <%= f.input :email, required: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
     <%= f.input :password_confirmation, required: true %>
-    <%= f.label :profile_image %>
-    <%= f.file_field :profile_image %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="form-actions">

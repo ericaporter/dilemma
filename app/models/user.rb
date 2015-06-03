@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
-  mount_uploader :profile_image, ProfileImageUploader
+  mount_uploader :image, ProfileImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :problems
@@ -44,6 +44,13 @@ class User < ActiveRecord::Base
         )
       # If you use confirmable module 
       # user.skip_confirmation!
+
+      user.remote_image_url = if auth.provider.to_sym == :twitter
+        auth.info.image if auth.info.image.present?
+      else
+        auth.info.image.gsub('http://', 'https://') << "?type=large" if auth.info.image.present?
+      end
+
       user.save!
     end
 

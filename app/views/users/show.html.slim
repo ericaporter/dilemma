@@ -1,2 +1,6 @@
 h1= @user.name
-= render @user.problems
+
+= image_tag @user.image.url
+
+ul.grid
+  = render @user.problems

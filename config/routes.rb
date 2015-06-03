@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'static_pages#home'
+  # root to: 'static_pages#home'
+  root "problems#index"
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show]
   resources :problems

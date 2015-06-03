@@ -14,10 +14,19 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require isotope.min
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
 
 $(document).on('ready page:load', function () {
-$(document).foundation();
+  $(document).foundation();
+
+  if ($('.grid').length > 0) {
+    $('.grid').isotope({
+      itemSelector: '.grid-item',
+      layoutMode: 'fitRows'
+    });
+  }
+  
 });

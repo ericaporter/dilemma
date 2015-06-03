@@ -1,25 +1,33 @@
-.contain-to-grid.sticky
-nav.top-bar data-topbar="data-topbar"
-  ul.title-area
-    li.name
-      h1 =link_to "Dilemma".html_safe, root_path        
-    li.toggle-topbar.menu-icon
-      a href="#"
-        span Menu
+header.contain-to-grid.sticky
+  nav.top-bar data-topbar="data-topbar"
+    ul.title-area
+      li.name
+        h1 =link_to "Dilemma".html_safe, root_path        
+      li.toggle-topbar.menu-icon
+        a href="#"
+          span Menu
+    section.top-bar-section
+      ul.left
+        li = link_to "Add Dilemma", new_problem_path
 
-  section.top-bar-section
-    ul.right
-      li = link_to "", root_path
-      li.has-dropdown
-        = link_to "Menu", "#"
-        ul.dropdown
-          li = link_to "Dilemmas", problems_path
-          li = link_to "New Dilemma", new_problem_path
-          - ActsAsTaggableOn::Tag.all.each do |category|
-            li= link_to category.name, problems_path(category: category.id)
-      - if user_signed_in?
-        li = link_to "Edit Profile", edit_user_registration_path
-        li = link_to "Logout", logout_path
-      - else
-        li = link_to "Login", login_path
-        li = link_to "Create an account", new_user_registration_path
+
+    section.top-bar-section
+      ul.right
+        li.has-dropdown
+          = link_to "Browse", "#"
+          ul.dropdown
+            li = link_to "All", problems_path
+            - ActsAsTaggableOn::Tag.all.each do |category|
+              li= link_to category.name, problems_path(category: category.id)
+        - if user_signed_in?
+          li = link_to current_user do
+            = image_tag(current_user.image.url)
+            = "Profile"
+          li.has-dropdown
+            = link_to "Account", "#"
+            ul.dropdown
+              li = link_to "Edit Profile", edit_user_registration_path
+              li = link_to "Logout", logout_path
+        - else
+          li = link_to "Login", login_path
+          li = link_to "Create an account", new_user_registration_path

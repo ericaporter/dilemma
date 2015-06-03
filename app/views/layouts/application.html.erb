@@ -10,17 +10,10 @@
     <%= javascript_include_tag "application", "//www.google.com/jsapi", "chartkick" %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
+  <%= render 'nav' %>
   <div class='row'>
-    <div class='medium-12 columns'>
-      <%= render 'nav' %>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='medium-12 columns'>
-      <%= yield %>
-    </div>
+    <%= yield %>
   </div>
   </body>
 </html>
