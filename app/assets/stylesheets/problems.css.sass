@@ -20,11 +20,22 @@ ul.problems
 
 
 
-.problem-text
-  font-size: 35px
-  color: white
-  word-wrap: break-word
-  font-family: 'Nothing You Could Do'
+.problem-text 
+  article
+    height: 200px
+    padding: 10px
+    a.problem-author
+      margin-top: 25px
+      display: block
+    a.problem-content
+      height: 130px
+      overflow: hidden
+      display: block
+      text-overflow: ellipsis
+      font-size: 20px
+      color: white
+      word-wrap: break-word
+      font-family: 'Nothing You Could Do'
 rect 
   fill: #ccc
 div.medium-6.columns 
@@ -37,8 +48,9 @@ text
 li
   font-family: 'Raleway', sans-serif
 
-.inner-problem
+.problem
   word-wrap: break-word
+  max-height: 300px
 
 
 
