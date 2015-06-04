@@ -1,5 +1,5 @@
 = simple_form_for(:comment, url: comments_path(commentable_type: commentable.class.to_s.underscore, commentable_id: commentable.id)) do |f| 
   = f.label :content, label: "Comments"
   = f.text_field :content, placeholder: 'Type your comments here...'
-  = f.button :submit, "Post comment", class: 'expand'
+  = f.button :submit, "Post comment"
 

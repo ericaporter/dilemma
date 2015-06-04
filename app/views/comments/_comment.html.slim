@@ -1,8 +1,9 @@
 - commentable = comment.problem
-li 
-  = image_tag comment.user.image if (comment.user && comment.user.image)
-  = comment.user.name if (comment.user && comment.user.name)
-  = comment.content
-  - if can? :destroy, comment 
-    = link_to 'delete', comment_path(comment, commentable_type: commentable.class, commentable_id: commentable.id), method: :delete, data: { confirm: 'Are you sure you want to delete?' } 
+li.comment-content
+  = image_tag comment.user.image,  class: "comment-author-thumbnail" if (comment.user && comment.user.image)
+  .comment-text
+    .author= comment.user.name if (comment.user && comment.user.name)
+    article= comment.content
+    - if can? :destroy, comment 
+      = link_to 'x', comment_path(comment, commentable_type: commentable.class, commentable_id: commentable.id), method: :delete, data: { confirm: 'Are you sure you want to delete?' } 
 
