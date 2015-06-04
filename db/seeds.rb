@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = User.create(email: 'ericaporter@email.com', password: 'password', password_confirmation: 'password')
 problem = user.problems.create(content:'example problem')
-problem.solutions.create(title: 'example solution')
+# problem.solutions.create(title: 'example solution')
 
 tags = ['Love', 'Life', 'Relationships', 'Money', 'Work', 'Study', 'Travel', 'Shopping']
 tags.each do |tag|
