@@ -14,6 +14,7 @@ gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '2.0.1'
 gem 'fog', '1.29.0'
 gem 'pry-rails'
+gem 'rails_12factor', group: :production
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -57,6 +58,6 @@ group :development, :test do
 end
 
 
-group :production do
-  gem 'rails_12factor' 
-end
+# group :production do
+   
+# end
