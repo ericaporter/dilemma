@@ -1,4 +1,4 @@
-h1 = @category ? "...#{@category}" : "All..."
+h1 = @category ? "...#{@category.name}" : "All..."
 
 ul.grid
   = render @problems

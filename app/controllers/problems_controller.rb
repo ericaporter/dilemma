@@ -4,10 +4,10 @@ class ProblemsController < ApplicationController
 
   def index
     # @problems = Problem.all
-    @category = ActsAsTaggableOn::Tag.find(params[:category]) if params[:category]
+    @category = Category.find_by_name(params[:category]) if params[:category]
 
     @problems = if @category
-      Problem.tagged_with @category
+      @category.problems
     else
       Problem.all
     end
@@ -23,7 +23,7 @@ class ProblemsController < ApplicationController
 
   def create
     @problem = current_user.problems.new(problem_params)
-    @problem.tag_list << ActsAsTaggableOn::Tag.find(params[:category])
+
     if @problem.save
       respond_with(@problem) 
     else
@@ -37,7 +37,7 @@ class ProblemsController < ApplicationController
 
   private
   def problem_params
-    params.require(:problem).permit(:content, :background_image, :tag_list, solutions_attributes: [:title])
+    params.require(:problem).permit(:content, :background_image, :category_id, solutions_attributes: [:title])
   end
 
 

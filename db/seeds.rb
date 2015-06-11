@@ -9,9 +9,9 @@ user = User.create(email: 'ericaporter@email.com', password: 'password', passwor
 problem = user.problems.create(content:'example problem')
 # problem.solutions.create(title: 'example solution')
 
-tags = ['Love', 'Life', 'Relationships', 'Money', 'Work', 'Study', 'Travel', 'Shopping']
-tags.each do |tag|
-  ActsAsTaggableOn::Tag.create(name: tag)
+categories = ['Love', 'Life', 'Relationships', 'Money', 'Work', 'Study', 'Travel', 'Shopping']
+categories.each do |cat|
+  Category.create(name: cat)
 end
 
 
