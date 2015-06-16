@@ -54,6 +54,21 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers :dilemma_radio_buttons, tag: 'div', class: 'row' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.wrapper :container_wrapper, tag: 'div', class: 'container_wrapper_again' do |ba|
+      ba.use :input
+      ba.wrapper :tag => 'span', :class => 'label' do |bb|
+        bb.use :label
+      end
+
+      ba.use :error, wrap_with: { tag: :small, class: :error }
+      ba.use :hint,  wrap_with: { tag: :span, class: :hint }
+    end
+  end
+
   # Foundation does not provide a way to handle inline forms
   # This wrapper can be used to create an inline form
   # by hiding that labels on every screen sizes ('hidden-for-small-up').

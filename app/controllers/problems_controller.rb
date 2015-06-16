@@ -16,14 +16,14 @@ class ProblemsController < ApplicationController
   def new 
     # load_and_authorize_resource will create the instance variable @problem
     # @problem = Problem.new
-
+    @categories = Category.all
     @problem.solutions.new
     
   end  
 
   def create
     @problem = current_user.problems.new(problem_params)
-
+    @categories = Category.all
     if @problem.save
       respond_with(@problem) 
     else

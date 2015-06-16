@@ -1,7 +1,10 @@
 = simple_form_for @problem, html: {multipart: true} do |f|
   = f.input :content, placeholder: 'Type your dilemma here...'
   = f.input :background_image, as: :file
-  = f.input :category_id, as: :radio_buttons, collection: Category.all
+  - @categories.each do |cat|
+    = radio_button_tag("problem[category_id]", cat.id, @problem.category_id == cat.id)
+    span.label = cat.name
+    br
   = f.fields_for :solutions do |builder|
     = render "solution_fields", f: builder
   p = link_to_add_fields "+ Add voting option", f, :solutions, 'button small secondary'
