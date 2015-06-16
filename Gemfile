@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'activeadmin', github: 'activeadmin'
 gem 'chartkick'
 gem 'rmagick'
 gem 'acts_as_commentable'
@@ -26,8 +27,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'activeadmin'
-gem "meta_search", '>= 1.1.0.pre'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
