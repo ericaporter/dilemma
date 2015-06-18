@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='http://fonts.googleapis.com/css?family=Lemon|Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    
     <title><%= content_for?(:title) ? yield(:title) : "Dilemma App" %></title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", "//www.google.com/jsapi", "chartkick" %>
     <%= csrf_meta_tags %>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
   </head>
   <body>
   <%= render 'nav' %>
@@ -19,5 +23,11 @@
       <%= yield %>
     </div>
   </div>
+  <script type="text/javascript">stLight.options({publisher: "b92795b5-6aa2-45e2-a27f-a5d482bd4098", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  <script>
+  var options={ "publisher": "b92795b5-6aa2-45e2-a27f-a5d482bd4098", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "pinterest"]}};
+  var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+  </script>
   </body>
 </html>
+

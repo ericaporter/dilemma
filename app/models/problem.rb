@@ -8,12 +8,17 @@ class Problem < ActiveRecord::Base
   has_many :votes, through: :solutions
   accepts_nested_attributes_for :solutions, :allow_destroy => true, :reject_if => proc { |solution| solution['title'].blank? }
 
-  validates_presence_of :category_id, message: "You must select a category."
+  validate :category_is_present
   validate :have_solutions
-  validates :content, length: { maximum: 200 }
+  validates :content, length: { in: 10..200 }
+  def category_is_present
+    unless category_id.present?
+      errors.add(:base, "You must select a category")
+    end
+  end
   def have_solutions
-    if solutions.size < 2
-      errors.add(:base, "Must have at least 2 options.")
+    unless solutions.size.in?(2..4)
+      errors.add(:base, "Must have at least 2 options but can not have more than 4.")
     end
   end
 end
