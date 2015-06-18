@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # root to: 'static_pages#home'
-  root "problems#index"
+ 
+  root "static_pages#landing_page"
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show]
-  resources :problems
+  resources :problems do
+    get :delete
+  end
   resources :comments
   get "tags/:tag", to: "problems#index", as: :tag
   resources :solutions do

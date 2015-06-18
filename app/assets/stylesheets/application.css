@@ -21,6 +21,7 @@
  *= require signin
  *= require solutions
  *= require users
+ *= require landing_page
  */
  
  header img {

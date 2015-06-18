@@ -1,0 +1,11 @@
+#landing-page-wrapper
+  .row
+    .medium-8.medium-centered.columns
+      h1 Landing Page
+      = simple_form_for(:user, :url => session_path(:user)) do |f| 
+        = f.input :email, required: false, autofocus: true 
+        = f.input :password, required: false 
+
+        = f.button :submit, "Log in" 
+
+      button id="facebook" onclick="location.href='/users/auth/facebook'"Sign in with Facebook

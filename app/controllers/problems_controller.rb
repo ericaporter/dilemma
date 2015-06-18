@@ -35,6 +35,11 @@ class ProblemsController < ApplicationController
     @problem = Problem.find_by_id(params[:id])
   end
 
+  def destroy
+    @problem_element = "#problem_#{@problem.id}"
+    @problem.destroy
+    render 'delete.js.erb'
+  end
   private
   def problem_params
     params.require(:problem).permit(:content, :background_image, :category_id, solutions_attributes: [:title])

@@ -4,11 +4,13 @@ class Problem < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :comments
-  has_many :solutions
+  has_many :solutions, dependent: :destroy
   has_many :votes, through: :solutions
-  accepts_nested_attributes_for :solutions, :allow_destroy => true, :reject_if => proc { |a| a['title'].blank? }
+  accepts_nested_attributes_for :solutions, :allow_destroy => true, :reject_if => proc { |solution| solution['title'].blank? }
+
   validates_presence_of :category_id, message: "You must select a category."
   validate :have_solutions
+  validates :content, length: { maximum: 200 }
   def have_solutions
     if solutions.size < 2
       errors.add(:base, "Must have at least 2 options.")
