@@ -3,9 +3,11 @@ class Problem < ActiveRecord::Base
   mount_uploader :background_image, BackgroundImageUploader
   belongs_to :user
   belongs_to :category
-  has_many :comments
-  has_many :solutions, dependent: :destroy
+  
+  has_many :comments, as: :commentish
+  
   has_many :votes, through: :solutions
+  has_many :solutions, dependent: :destroy
   accepts_nested_attributes_for :solutions, :allow_destroy => true, :reject_if => proc { |solution| solution['title'].blank? }
 
   validate :category_is_present
