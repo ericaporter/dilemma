@@ -1,5 +1,5 @@
 # dilemma
-Web app allowing users to post their social dilemmas to a community of users, who are able to vote for solutions and leave comments. 
+Rails app allowing users to post their social dilemmas to a community of users, who are able to vote for solutions and leave comments. 
 ### Setup the database
 Adjust config/database.yml as needed.
 ```ruby
