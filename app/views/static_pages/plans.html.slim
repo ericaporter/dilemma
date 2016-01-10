@@ -1,0 +1,24 @@
+javascript:
+  $(function(){ 
+    //when the plan button is clicked
+    $("a.plan_select").click(function(){
+      //copy the data-plan-id attribute to the #payments_plan_id input
+      var data_plan_id = $(this).attr('data-plan-id')
+      $("#payments_plan_id").val(data_plan_id)
+      console.log("user has selected " + data_plan_id)
+    })
+  });
+  
+.row
+  .medium-12.columns
+    h1 Plans
+    = link_to "Plan 1", "#", {class: 'button plan_select', data: { plan_id: "plan_167" } }
+    br
+    = link_to "Plan 2", "#", {class: 'button plan_select', data: { plan_id: "plan_477" } }
+    br
+    = link_to "Plan 3", "#", {class: 'button plan_select', data: { plan_id: "plan_9967" } }
+
+    = simple_form_for 'payments' do |f|
+      = f.input :plan_id, as: :hidden
+      = f.input :cc_number
+      = f.button :submit, 'Submit'  

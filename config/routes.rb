@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
  
   root "static_pages#landing_page"
+  get "plans", to: "static_pages#plans"
+  post "plans", to: "static_pages#plans"
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show]
   resources :problems do

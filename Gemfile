@@ -12,7 +12,7 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '2.0.1'
-gem 'fog', '1.29.0'
+gem 'fog', '~> 1.36'
 gem 'pry-rails'
 gem 'rails_12factor', group: :production
 

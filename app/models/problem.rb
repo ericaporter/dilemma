@@ -4,7 +4,7 @@ class Problem < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   
-  has_many :comments, as: :commentish
+  has_many :comments, as: :commentable
   
   has_many :votes, through: :solutions
   has_many :solutions, dependent: :destroy
