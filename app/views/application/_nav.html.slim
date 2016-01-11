@@ -21,7 +21,10 @@ header.contain-to-grid.sticky
               li= link_to category.name, problems_path(category: category.name)
         - if user_signed_in?
           li = link_to current_user do
-            = image_tag(current_user.image.url)
+            - if current_user.image.present?
+              div.profile-square = image_tag(current_user.image.url)
+            - else
+              div.profile-square.letter-square = current_user.name[0].capitalize 
             = "Profile"
           li.has-dropdown
             = link_to "Account", "#"
