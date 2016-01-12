@@ -45,6 +45,4 @@ class ProblemsController < ApplicationController
     params.require(:problem).permit(:content, :background_image, :category_id, solutions_attributes: [:title])
   end
 
-
-
 end

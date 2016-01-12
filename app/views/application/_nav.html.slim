@@ -2,24 +2,23 @@ header.contain-to-grid.sticky
   nav.top-bar data-topbar="data-topbar"
     ul.title-area
       li.name
-        h1 =link_to "Dilemma".html_safe, root_path        
+        h1 =link_to "Dilemma".html_safe, root_path       
       li.toggle-topbar.menu-icon
         a href="#"
           span Menu
-    section.top-bar-section
-      ul.left
-        li = link_to "Add Dilemma", new_problem_path
-
-
+    - if user_signed_in? 
+      section.top-bar-section
+        ul.left
+          li = link_to "Add Dilemma", new_problem_path
     section.top-bar-section
       ul.right
-        li.has-dropdown
-          = link_to "Browse", "#"
-          ul.dropdown
-            li = link_to "All", problems_path
-            - Category.all.each do |category|
-              li= link_to category.name, problems_path(category: category.name)
         - if user_signed_in?
+          li.has-dropdown
+            = link_to "Browse", "#"
+            ul.dropdown
+              li = link_to "All", problems_path
+              - @categories.each do |category|
+                li= link_to category.name, problems_path(category: category.name)
           li = link_to current_user do
             - if current_user.image.present?
               div.profile-square = image_tag(current_user.image.url)
