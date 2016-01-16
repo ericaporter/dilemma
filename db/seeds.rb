@@ -16,7 +16,7 @@ shopping_cat = Category.create(name: 'Shopping')
 
 ########
 
-sam = User.create!(name: 'Sam', email: 'sams@email.com', password: 'password', password_confirmation: 'password')
+sam = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password', password_confirmation: 'password')
 sams_problem = sam.problems.new(category: love_cat, content:'Where should I take my girlfriend for our anniversiary?')
 sams_problem.solutions.new([
   {title: "Paris"},
@@ -25,7 +25,7 @@ sams_problem.solutions.new([
 ])
 sams_problem.save!
 
-dan = User.create!(name: 'Dan', email: 'dans@email.com', password: 'password', password_confirmation: 'password')
+dan = User.create!(name: 'Dan', email: 'dan@email.com', password: 'password', password_confirmation: 'password')
 dans_problem = dan.problems.new(category: work_cat, content:'I have just started a new job but have recieved an offer for a better paid one, what should I do?')
 dans_problem.solutions.new([
   {title: "Stay, you've made your bed.."},
@@ -33,7 +33,7 @@ dans_problem.solutions.new([
 ])
 dans_problem.save!
 
-alice = User.create!(name: 'Alice', email: 'alices@email.com', password: 'password', password_confirmation: 'password')
+alice = User.create!(name: 'Alice', email: 'alice@email.com', password: 'password', password_confirmation: 'password')
 alices_problem = alice.problems.new(category: relationship_cat, content:'I like my best friends ex. They broke up last month. Can I ask him out?')
 alices_problem.solutions.new([
   {title: "No, don't do it."},
@@ -42,8 +42,8 @@ alices_problem.solutions.new([
 ])
 alices_problem.save!
 
-charlie = User.create!(name: 'Charlie', email: 'charlies@email.com', password: 'password', password_confirmation: 'password')
-charlies_problem = charlie.problems.new(category: travel_cat, content:"I have 6 days of leave left, is that long enough to visit Hong Kong?")
+charlie = User.create!(name: 'Charlie', email: 'charlie@email.com', password: 'password', password_confirmation: 'password')
+charlies_problem = charlie.problems.new(category: travel_cat, content:"I have 6 days of annual leave left, is that long enough to visit Hong Kong?")
 charlies_problem.solutions.new([
   {title: "Yes, loads of time"},
   {title: "No, jetlag is evil"}

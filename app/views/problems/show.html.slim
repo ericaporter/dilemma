@@ -8,8 +8,9 @@ h1 ...#{ @problem.category.name }
           = @problem.content
 .row
   .medium-6.medium-centered.columns
-    - if user_has_voted_on_problem?(current_user, @problem)
+    - if user_has_voted_on_problem?(current_user, @problem) || problem_belongs_to_current_user?
       = pie_chart(piechart_data(@problem.solutions))
+
 
     ul.solutions-list
       - @problem.solutions.each do |solution|
@@ -20,6 +21,8 @@ h1 ...#{ @problem.category.name }
             .medium-6.columns
               - if user_has_voted_on_problem?(current_user, @problem)
                 p Vote has been cast!
+              - elsif problem_belongs_to_current_user?
+                = render 'solutions/message' 
               - else
                 = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
 
