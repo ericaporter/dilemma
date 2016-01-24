@@ -1,11 +1,12 @@
 #landing-page-wrapper
   .login-form-wrapper
     = simple_form_for(:user, :url => session_path(:user)) do |f| 
-        = f.input :email, label: false, required: false, autofocus: true, placeholder: 'Email'
+        = f.input :email, label: false, required: false, autofocus: true,  placeholder: 'Email'
         = f.input :password, label: false, required: false, placeholder: 'Password'
         = f.button :submit, "Log in", class: 'expand' 
         .additional-links.text-center 
           | #{ link_to "Sign up", new_registration_path(:user)} <br>
           | #{ link_to "Forgot your password?", new_password_path(:user)}
-    button#facebook onclick="location.href='/users/auth/facebook'"Log in with Facebook
+    .facebook-button
+      button#facebook onclick="location.href='/users/auth/facebook'"Log in with Facebook
 

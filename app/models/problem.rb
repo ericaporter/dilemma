@@ -3,6 +3,7 @@ class Problem < ActiveRecord::Base
   mount_uploader :background_image, BackgroundImageUploader
   belongs_to :user
   belongs_to :category
+  before_create :set_color
   
   has_many :comments, as: :commentable
   has_many :votes, through: :solutions
@@ -15,7 +16,7 @@ class Problem < ActiveRecord::Base
   validates :content, length: { in: 10..200 }
 
   def category_is_present
-    unless category_id.present?
+    if self.category_id.nil?
       errors.add(:base, "You must select a category")
     end
   end
@@ -26,4 +27,7 @@ class Problem < ActiveRecord::Base
     end
   end
 
+  def set_color
+    self.color = ["#8a00e6", "#0066ff", "#00b359", "#00b2b3", "#003cb3", "#66ccff"].sample  
+  end
 end

@@ -3,15 +3,11 @@ h1 ...#{ @problem.category.name }
 .row
   .medium-6.medium-centered.columns
     div.problem-image-container
-      div.problem-image style="background: url('#{image_url @problem.background_image }');" 
+      div.problem-image style="background: url('#{image_url @problem.background_image }'); background-color: #{@problem.color};" 
         div.problem-text
           = @problem.content
 .row
   .medium-6.medium-centered.columns
-    - if user_has_voted_on_problem?(current_user, @problem) || problem_belongs_to_current_user?
-      = pie_chart(piechart_data(@problem.solutions))
-
-
     ul.solutions-list
       - @problem.solutions.each do |solution|
         li 
@@ -21,17 +17,16 @@ h1 ...#{ @problem.category.name }
             .medium-6.columns
               - if user_has_voted_on_problem?(current_user, @problem)
                 p Vote has been cast!
-              - elsif problem_belongs_to_current_user?
-                = render 'solutions/message' 
               - else
-                = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
-
+                 
+                - if problem_belongs_to_current_user?
+                  = render 'solutions/voted_on_solution_message'
+                - else
+                  = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
+    - if user_has_voted_on_problem?(current_user, @problem) || problem_belongs_to_current_user?
+      = pie_chart(piechart_data(@problem.solutions))
+        
     = render 'comments/form', commentable: @problem if user_signed_in?
                 
     = render @problem.comments
-- content_for(:head) do
-  meta property="og:title" content="The dilemma"
-  meta property="og:type" content="#{@problem.content}"
-  meta property="og:url" content="http://dilemma.herokuapp.com"
-  meta property="og:description" content="Share your dilemma!"
-  meta property="og:site_name" content="Dilemma"    
+ 
