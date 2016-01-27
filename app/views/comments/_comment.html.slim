@@ -1,9 +1,8 @@
-- commentable = comment.problem
-li.comment-content
+li.comment-content id="#{dom_id(comment)}"
   = image_tag comment.user.image,  class: "comment-author-thumbnail" if (comment.user && comment.user.image)
   .comment-text
     .author= comment.user.name if (comment.user && comment.user.name)
     article= comment.content
     - if can? :destroy, comment 
-      = link_to 'x', comment_path(comment, commentable_type: commentable.class, commentable_id: commentable.id), method: :delete, data: { confirm: 'Are you sure you want to delete?' } 
+      = link_to "x", [comment.commentable, comment], remote: true, method: :delete, data: {confirm: "Are you sure?"}
 

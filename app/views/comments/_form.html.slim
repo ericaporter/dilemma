@@ -1,4 +1,9 @@
-= simple_form_for(:comment, url: comments_path(commentable_type: commentable.class.to_s.underscore, commentable_id: commentable.id)) do |f| 
-  = f.text_field :content, placeholder: 'Add your comments here...'
-  = f.button :submit, "Post comment"
-
+= simple_form_for [comment.commentable, comment], html: {class: "custom"}, remote: true do |f|
+  - if comment.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(comment.errors.count, "error")} prohibited this comment from being saved:"
+      ul
+        - comment.errors.full_messages.each do |message|
+          li = message
+  = f.input :content, label: "Comment", input_html: {rows: 2}
+  = f.button :submit, "Comment", class: 'secondary'

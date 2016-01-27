@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show]
   resources :problems do
+    resources :comments
     get :delete
   end
-  resources :comments
+  
   get "tags/:tag", to: "problems#index", as: :tag
   resources :solutions do
     get :cast_vote, on: :member

@@ -1,0 +1,5 @@
+= render 'comments/form', comment: commentable.comments.new
+ul id="#{commentable.class.name.downcase}_comments"
+  - commentable.comments.order(created_at: :desc).each do |c|
+    - unless c.new_record?
+      = render 'comments/comment', comment: c
