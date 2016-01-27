@@ -1,3 +1,3 @@
 Chartkick.options = {
-  colors: ["#008cba", "#f04124", "#43AC6A", "#ffff00", "#ff00ff", "0000ff"]
+  colors: ["#8a00e6", "#0066ff", "#00b359", "#00b2b3", "#003cb3", "#66ccff", "#d52020"]
 }
