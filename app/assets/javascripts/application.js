@@ -20,6 +20,7 @@ $(function(){ $(document).foundation(); });
 
 $(document).on('ready page:load', function () {
   $(document).foundation();
+  fade_out_system_alerts();
 
   if ($('.grid').length > 0) {
     $('.grid').isotope({

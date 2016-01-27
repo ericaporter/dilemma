@@ -1,8 +1,8 @@
 #landing-page-wrapper
   .login-form-wrapper
     = simple_form_for(:user, :url => session_path(:user)) do |f| 
-        = f.input :email, label: false, required: false, autofocus: true,  placeholder: 'Email'
-        = f.input :password, label: false, required: false, placeholder: 'Password'
+        = f.input :email, label: false, required: false, autofocus: true, input_html: {id: "login-email"}, placeholder: 'Email'
+        = f.input :password, label: false, required: false, input_html: {id: "login-password"},placeholder: 'Password'
         = f.button :submit, "Log in", class: 'expand' 
         .additional-links.text-center 
           | #{ link_to "Sign up", new_registration_path(:user)} <br>

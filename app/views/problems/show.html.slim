@@ -1,32 +1,30 @@
-
-h1 ...#{ @problem.category.name } 
-.row
-  .medium-6.medium-centered.columns
-    div.problem-image-container
-      div.problem-image style="background: url('#{image_url @problem.background_image }'); background-color: #{@problem.color};" 
-        div.problem-text
-          = @problem.content
-.row
-  .medium-6.medium-centered.columns
-    ul.solutions-list
-      - @problem.solutions.each do |solution|
-        li 
-          .row
-            .medium-6.columns
-              p #{solution.title}
-            .medium-6.columns
-              - if user_has_voted_on_problem?(current_user, @problem)
-                p Vote has been cast!
-              - else
-                 
-                - if problem_belongs_to_current_user?
-                  = render 'solutions/voted_on_solution_message'
+.page-title
+  h1 ...#{ @problem.category.name } 
+  .row
+    .medium-6.medium-centered.columns
+      .problem-image-container
+        .problem-image style="background: url('#{image_url @problem.background_image }'); background-color: #{@problem.color};" 
+          .problem-inner
+            .problem-text
+              = @problem.content
+              = link_to @problem.user.try(:name), @problem.user, class: 'problem-author'
+  .row
+    .medium-6.medium-centered.columns
+      ul.solutions-list
+        - @problem.solutions.each do |solution|
+          li 
+            .row
+              .medium-6.columns
+                p #{solution.title}
+              .medium-6.columns
+                - if user_has_voted_on_problem?(current_user, @problem)
+                  p Vote has been cast!
                 - else
-                  = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
-    - if user_has_voted_on_problem?(current_user, @problem) || problem_belongs_to_current_user?
-      = pie_chart(piechart_data(@problem.solutions))
-        
-    = render 'comments/form', commentable: @problem if user_signed_in?
-                
-    = render @problem.comments
- 
+                  - if problem_belongs_to_current_user?
+                    = render 'solutions/voted_on_solution_message'
+                  - else
+                    = link_to "Cast Vote", cast_vote_solution_path(solution), remote: true, class: 'button tiny'
+      - if user_has_voted_on_problem?(current_user, @problem) || problem_belongs_to_current_user? && @problem.votes.count >= 1
+        = pie_chart(piechart_data(@problem.solutions))
+          
+      = render 'comments/list', commentable: @problem if user_signed_in? 
