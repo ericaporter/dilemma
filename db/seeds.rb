@@ -38,7 +38,7 @@ alices_problem = alice.problems.new(category: relationship_cat, content:'I like 
 alices_problem.solutions.new([
   {title: "No, don't do it."},
   {title: "Wait at least another month"},
-  {title: "Go for it"},
+  {title: "Go for it"}
 ])
 alices_problem.save!
 
@@ -49,3 +49,48 @@ charlies_problem.solutions.new([
   {title: "No, jetlag is evil"}
 ])
 charlies_problem.save!
+
+brett = User.create!(name: 'Brett', email: 'brett@email.com', password: 'password', password_confirmation: 'password')
+bretts_problem = brett.problems.new(category: travel_cat, content:"Can you do Burning man festival for less than 2k")
+bretts_problem.solutions.new([
+  {title: "Yes, if you are prepared to sleep in a tent"},
+  {title: "No, you will die"}
+])
+bretts_problem.save!
+
+amy = User.create!(name: 'Amy', email: 'amy@email.com', password: 'password', password_confirmation: 'password')
+amys_problem = amy.problems.new(category: travel_cat, content:"Where is better in winter, Egypt or South Africa?")
+amys_problem.solutions.new([
+  {title: "Egypt"},
+  {title: "SA"},
+  {title: "Neither"}
+])
+amys_problem.save!
+
+rick = User.create!(name: 'Rick', email: 'rick@email.com', password: 'password', password_confirmation: 'password')
+ricks_problem = rick.problems.new(category: love_cat, content:"I have been dating my gf for 2 months. Is it too early to ask her to marry me?")
+ricks_problem.solutions.new([
+  {title: "Yes"},
+  {title: "No"}
+])
+ricks_problem.save!
+
+max = User.create!(name: 'Max', email: 'max@email.com', password: 'password', password_confirmation: 'password')
+maxs_problem = max.problems.new(category: life_cat, content:"My roommate drinks all of my beer without replacing it, What should I do?")
+maxs_problem.solutions.new([
+  {title: "Speak to him about it"},
+  {title: "Ignore it"}
+])
+maxs_problem.save!
+
+matt = User.create!(name: 'Matt', email: 'matt@email.com', password: 'password', password_confirmation: 'password')
+matts_problem = matt.problems.new(category: study_cat, content:"Which is better for Computer Science, KCL or UCL?")
+matts_problem.solutions.new([
+  {title: "KCL"},
+  {title: "UCL"},
+  {title: "Both same"},
+  {title: "Neither"}
+])
+matts_problem.save!
+
+matts_problem.save!
