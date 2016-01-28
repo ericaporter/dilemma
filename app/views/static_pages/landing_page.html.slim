@@ -1,5 +1,5 @@
 #landing-page-wrapper
-  .login-form-wrapper
+  .login-form-wrapper.centered
     = simple_form_for(:user, :url => session_path(:user)) do |f| 
         = f.input :email, label: false, required: false, autofocus: true, input_html: {id: "login-email"}, placeholder: 'Email'
         = f.input :password, label: false, required: false, input_html: {id: "login-password"},placeholder: 'Password'
