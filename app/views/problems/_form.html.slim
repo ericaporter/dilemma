@@ -3,7 +3,7 @@
     - @problem.errors.full_messages.each do |message|
       li = message
   = f.input :content, label: false, placeholder: 'Add your dilemma here...'
-  = f.input :background_image, as: :file, label: 'Upload a background image for your dilemma or we can add one for you.'
+  = f.input :background_image, as: :file, label: 'Upload a background image for your dilemma or we can choose one for you'
   = f.label :category
   - @categories.each do |cat|
     = radio_button_tag("problem[category_id]", cat.id, @problem.category_id == cat.id)
