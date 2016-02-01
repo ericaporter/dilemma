@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625184813) do
+ActiveRecord::Schema.define(version: 20160116151449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,10 +82,11 @@ ActiveRecord::Schema.define(version: 20150625184813) do
   create_table "problems", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "content"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "background_image"
     t.integer  "category_id"
+    t.string   "color",            default: "#008CBA"
   end
 
   add_index "problems", ["category_id"], name: "index_problems_on_category_id", using: :btree

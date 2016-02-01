@@ -1,3 +1,6 @@
+.problem-new-wrapper
+  padding: 50px
+
 ul.problems
   list-style: none
   margin: 0
@@ -7,6 +10,19 @@ ul.problems
   position: relative
   background-color: red
 .problem-image
+  .problem-inner
+    width: 100%
+    height: 100%
+    box-sizing: border-box
+    border: 5px solid #FFF
+    a.problem-author
+      padding-bottom: 50px
+      display: block
+      font-size: 30px
+      color: #fff 
+      -webkit-text-shadow: 0px 1px 0 rgba(0,0,0,0.8)
+      -moz-text-shadow: 0px 1px 0 rgba(0,0,0,0.8)
+      text-shadow: 0px 1px 0 rgba(0,0,0,0.8)
   height: 400px
   width: 400px
   background-size: cover !important
@@ -21,6 +37,7 @@ ul.problems
   font-family: 'Nothing You Could Do'
   font-size: 30px
   color: #fff 
+  padding-top: 30px
   -webkit-text-shadow: 0px 1px 0 rgba(0,0,0,0.8)
   -moz-text-shadow: 0px 1px 0 rgba(0,0,0,0.8)
   text-shadow: 0px 1px 0 rgba(0,0,0,0.8)
@@ -42,16 +59,19 @@ ul.problems
       word-wrap: break-word
       font-family: 'Nothing You Could Do'
 rect 
-  fill: #ccc
+  fill: #e9e9e9
+
 div.medium-6.columns 
   p
-    font-family: 'Raleway', sans-serif
+    font-family: Helvetica
     font-size: 15px
     margin-top: 20px
 text
-  font-family: 'Raleway', sans-serif
+  font-family: Helvetica
 li
-  font-family: 'Raleway', sans-serif
+  font-family: 'Nothing You Could Do'
+  font-weight: 100
+
 .problem
   word-wrap: break-word
   max-height: 300px
@@ -62,7 +82,5 @@ a.destroy_problem
   width: 35px
   height: 35px
 
-
-
-
-
+.page-title
+  margin-top: 35px

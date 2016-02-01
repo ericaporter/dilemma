@@ -5,7 +5,6 @@ class ProblemsController < ApplicationController
   def index
     # @problems = Problem.all
     @category = Category.find_by_name(params[:category]) if params[:category]
-
     @problems = if @category
       @category.problems
     else
@@ -18,7 +17,6 @@ class ProblemsController < ApplicationController
     # @problem = Problem.new
     @categories = Category.all
     @problem.solutions.new
-    
   end  
 
   def create
@@ -44,7 +42,5 @@ class ProblemsController < ApplicationController
   def problem_params
     params.require(:problem).permit(:content, :background_image, :category_id, solutions_attributes: [:title])
   end
-
-
 
 end

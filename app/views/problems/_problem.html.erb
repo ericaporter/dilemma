@@ -1,9 +1,0 @@
-<li id="<%=dom_id(problem)%>" class="grid-item small-12 medium-4 large-3 columns problem-text">
-  <div class="inner-problem" style="background-image: url(<%= problem.background_image %>);">
-    <%= link_to "X", problem_path(problem), method: :delete, remote: true, class: 'destroy_problem', data: {confirm: 'Are you sure?'} %>
-    <article>
-        <%= link_to problem.content, problem_path(problem), class: "problem-content" %>
-      <%= link_to problem.user.try(:name), problem.user, class: "problem-author" %>
-    </article>
-  </div>
-</li>  

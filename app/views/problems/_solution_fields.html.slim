@@ -2,5 +2,6 @@
   .row
     .medium-12.columns
       = f.input :title, label: false, placeholder: 'Type your voting option here...'
-    .medium-12.columns
-      = link_to_remove_fields "- Remove Option", f, 'button small alert expand'
+  .row
+    .medium-2.medium-offset-10.columns
+      = link_to_remove_fields "X Delete", f, class: 'remove-problem'
