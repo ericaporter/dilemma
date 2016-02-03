@@ -28,6 +28,6 @@ class Problem < ActiveRecord::Base
   end
 
   def set_color
-    self.color = ["#72C4B9", "#9A9C9F", "#6A486B", "#25354A", "#CDB5CD", "#A2B5CD", "#3b5998"].sample  
+    self.color = ["#72C4B9", "#9A9C9F", "#6A486B", "#25354A", "#A2B5CD", "#53868B"].sample  
   end
 end
