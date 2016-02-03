@@ -1,10 +1,10 @@
 #user_profile
   .centerpiece
-    = image_tag @user.image.url
+    - if @user.image.present?
+      = image_tag @user.image.url, class: "profile-image"
     h1= @user.name
 .row
   .medium-12
     #user_profile_content
       ul.grid
         = render @user.problems
-  
