@@ -1,0 +1,13 @@
+h2 Log in...
+.form-wrapper
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
+    = f.input :email, required: false, autofocus: true 
+    = f.input :password, required: false   
+    = f.input :remember_me, as: :boolean if devise_mapping.rememberable? 
+
+    = f.button :submit, "Log in", class: "button small" 
+
+  .shared-links
+    = render "devise/shared/links"  
+  .buttons-login
+    button id="facebook" onclick="location.href='/users/auth/facebook'" Sign in with Facebook
