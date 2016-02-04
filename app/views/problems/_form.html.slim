@@ -13,7 +13,6 @@
   = f.fields_for :solutions do |builder|
     = render "solution_fields", f: builder
   
-  p = link_to_add_fields "+ Add voting option", f, :solutions, 'button small secondary'
+  p = link_to_add_fields "+ Add voting option", f, :solutions, 'secondary button'
   
   = f.button :submit, "Create Dilemma", class: "button small"
-

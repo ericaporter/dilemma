@@ -1,0 +1,22 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8" 
+    meta name="viewport" content="width=device-width, initial-scale=1.0" 
+    link href='http://fonts.googleapis.com/css?family=Lemon|Nothing+You+Could+Do' rel='stylesheet' type='text/css'
+    link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'
+    link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'
+    title= content_for?(:title) ? yield(:title) : "Dilemma App" 
+    = favicon_link_tag 'favicon.ico' 
+    = stylesheet_link_tag    "application" 
+    = javascript_include_tag "vendor/modernizr" 
+    = javascript_include_tag "application", "//www.google.com/jsapi", "chartkick" 
+    = csrf_meta_tags 
+    = yield :head 
+  body
+  script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56b0a65c99e7f9c8" async="async"
+  = render 'nav' 
+  = render 'flash_messages' 
+  .row
+    .small-12.medium-12.columns
+      == yield 

@@ -4,7 +4,6 @@
       = image_tag @user.image.url, class: "profile-image"
     h1= @user.name
 .row
-  .medium-12
+  ul.grid
     #user_profile_content
-      ul.grid
-        = render @user.problems
+      = render @user.problems
