@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
-  load_and_authorize_resource
-  respond_to :html
+  load_and_authorize_resource :problem
+  respond_to :html, :js
 
   def index
     # @problems = Problem.all
@@ -34,7 +34,6 @@ class ProblemsController < ApplicationController
   end
 
   def destroy
-    @problem_element = "#problem_#{@problem.id}"
     @problem.destroy
     render 'delete.js.erb'
   end
