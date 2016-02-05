@@ -17,7 +17,7 @@ shopping_cat = Category.create(name: 'Shopping')
 ########
 
 sam = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password', password_confirmation: 'password')
-sams_problem = sam.problems.new(category: love_cat, content:'Where should I take my girlfriend for our anniversiary?')
+sams_problem = sam.problems.new(category: love_cat, content:'Where should I take my girlfriend for our anniversary?')
 sams_problem.solutions.new([
   {title: "Paris"},
   {title: "My parent's house"},
@@ -51,7 +51,7 @@ charlies_problem.solutions.new([
 charlies_problem.save!
 
 brett = User.create!(name: 'Brett', email: 'brett@email.com', password: 'password', password_confirmation: 'password')
-bretts_problem = brett.problems.new(category: travel_cat, content:"Can you do Burning man festival for less than 2k")
+bretts_problem = brett.problems.new(category: travel_cat, content:"Can you do Burning man festival for less than 2k?")
 bretts_problem.solutions.new([
   {title: "Yes, if you are prepared to sleep in a tent"},
   {title: "No, you will die"}
