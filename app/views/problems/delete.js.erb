@@ -1,4 +1,4 @@
-$("<%= @problem_element %>").remove();
+$("#<%= dom_id(@problem) %>").remove();
 $('.grid').isotope({
   itemSelector: '.grid-item',
   layoutMode: 'fitRows'

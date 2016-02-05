@@ -1,6 +1,0 @@
-- if @comment.errors.present? 
-  //reload failed form
-  $("#new_comment").replaceWith("<%= j(render 'form') %>");
-- else 
-  $("ul#<%= @commentable.class.name.downcase %>_comments").prepend("<%= j(render 'comment', comment: @comment) %>")
-
