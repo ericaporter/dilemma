@@ -29,6 +29,6 @@ class Problem < ActiveRecord::Base
   end
 
   def set_color
-    self.color = ["#72C4B9", "#9A9C9F", "#6A486B", "#25354A", "#A2B5CD", "#53868B"].sample  
+    self.color = ["#1ba1e2", "#326ada", "#86becb", "#1aa3a3", "#0b5e56"].sample  
   end
 end

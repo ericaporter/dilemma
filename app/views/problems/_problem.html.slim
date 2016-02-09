@@ -1,4 +1,4 @@
-li.grid-item.small-12.medium-4.large-3.columns.problem-text id="#{dom_id(problem)}" 
+li.grid-item.small-12.medium-4.large-3.columns id="#{dom_id(problem)}" 
   div class="inner-problem" style="background-image: url(#{problem.background_image.url}); background-color: #{problem.color};"
     - if can? :destroy, problem
       = link_to "X", problem_path(problem), method: :delete, remote: true, class: 'destroy_problem', data: {confirm: 'Are you sure?'} 

@@ -7,7 +7,7 @@
           .problem-inner
             .problem-text
               = @problem.content
-              = link_to @problem.user.try(:name), @problem.user, class: 'problem-author'
+              = link_to @problem.user.try(:name), @problem.user, class: 'problem-name'
   .row
     .medium-6.medium-centered.columns
       ul.solutions-list
