@@ -7,7 +7,11 @@
           .problem-inner
             .problem-text
               = @problem.content
+<<<<<<< HEAD
               = link_to @problem.user.try(:name), @problem.user, class: 'problem-name'
+=======
+              = link_to @problem.user.try(:name), @problem.user, class: 'problem-user'
+>>>>>>> feature/feb-updates
   .row
     .medium-6.medium-centered.columns
       ul.solutions-list

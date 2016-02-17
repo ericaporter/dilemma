@@ -21,22 +21,23 @@ sams_problem = sam.problems.new(category: love_cat, content:'Where should I take
 sams_problem.solutions.new([
   {title: "Paris"},
   {title: "My parent's house"},
-  {title: "Rome"}
+  {title: "No where, go for a meal instead"}
 ])
 sams_problem.save!
 
 dan = User.create!(name: 'Dan', email: 'dan@email.com', password: 'password', password_confirmation: 'password')
-dans_problem = dan.problems.new(category: work_cat, content:'I have just started a new job but have recieved an offer for a better paid one, what should I do?')
+dans_problem = dan.problems.new(category: life_cat, content:'My uber driver is really friendly but he smells bad! Should I still give him 5 stars?')
 dans_problem.solutions.new([
-  {title: "Stay, you've made your bed.."},
-  {title: "Quit, take the better paid one"}
+  {title: "No way, 3 stars max"},
+  {title: "Maybe 4 stars. Minus one for the smell"},
+  {title: "Being nice is worth a lot, give him 5 stars"}
 ])
 dans_problem.save!
 
 alice = User.create!(name: 'Alice', email: 'alice@email.com', password: 'password', password_confirmation: 'password')
 alices_problem = alice.problems.new(category: relationship_cat, content:'I like my best friends ex. They broke up last month. Can I ask him out?')
 alices_problem.solutions.new([
-  {title: "No, don't do it."},
+  {title: "No, don't do it"},
   {title: "Wait at least another month"},
   {title: "Go for it"}
 ])
@@ -76,10 +77,11 @@ ricks_problem.solutions.new([
 ricks_problem.save!
 
 max = User.create!(name: 'Max', email: 'max@email.com', password: 'password', password_confirmation: 'password')
-maxs_problem = max.problems.new(category: life_cat, content:"My roommate drinks all of my beer without replacing it, What should I do?")
+maxs_problem = max.problems.new(category: life_cat, content:"My roommate drinks all of my craft beer and replaces it with Miller, What should I do?")
 maxs_problem.solutions.new([
-  {title: "Speak to him about it"},
-  {title: "Ignore it"}
+  {title: "Put his room up on SpareRoom and replace him without him knowing"},
+  {title: "Call a meeting and demand that this behaviour ceases"},
+  {title: "Buy Budweiser in future. Then you will be trading up"}
 ])
 maxs_problem.save!
 
@@ -89,8 +91,21 @@ matts_problem.solutions.new([
   {title: "KCL"},
   {title: "UCL"},
   {title: "Both same"},
-  {title: "Neither"}
+  {title: "Neither, studying is bad for your health"}
 ])
 matts_problem.save!
 
-matts_problem.save!
+erica = User.create!(name: 'Erica', email: 'erica@email.com', password: 'password', password_confirmation: 'password')
+ericas_problem = erica.problems.new(category: life_cat, content:"I recently found myself enjoying a Justin Bieber song.. what should I do?")
+ericas_problem.solutions.new([
+  {title: "Think long and hard about what might have gone wrong"},
+  {title: "His new album is great, what are you worried about?"},
+  {title: "Be ashamed"},
+  {title: "It could be worse. You might have accidently enjoyed a 1D song too"}
+])
+ericas_problem.save!
+
+
+
+
+
